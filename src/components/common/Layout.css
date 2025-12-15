@@ -1,23 +1,26 @@
 .layout {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  background-color: var(--bg-primary);
 }
 
-.layout-body {
-  display: flex;
+.layout-main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .main-content {
   flex: 1;
-  padding: 1.5rem;
+  padding: 0 24px 24px;
   overflow-x: hidden;
   max-width: 100%;
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding: 1rem;
+    padding: 0 16px 16px;
   }
 }

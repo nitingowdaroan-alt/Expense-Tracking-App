@@ -1,8 +1,5 @@
 .trend-chart-container {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
+  height: 100%;
 }
 
 .trend-chart-wrapper {
@@ -11,20 +8,20 @@
 
 .trend-tooltip {
   background-color: var(--bg-secondary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 0.75rem 1rem;
-  box-shadow: var(--shadow-md);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  box-shadow: var(--shadow-lg);
 }
 
 .trend-tooltip-label {
   font-size: 0.8125rem;
   color: var(--text-secondary);
-  margin-bottom: 0.25rem;
+  margin-bottom: 4px;
 }
 
 .trend-tooltip-value {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: var(--accent-primary);
 }

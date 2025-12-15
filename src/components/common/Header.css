@@ -2,77 +2,184 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.5rem;
-  background-color: var(--bg-secondary);
-  border-bottom: 1px solid var(--border-color);
+  padding: 16px 24px;
+  background-color: transparent;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 50;
+  gap: 24px;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .sidebar-toggle {
   display: none;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.logo-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
-  color: white;
-  font-weight: 700;
-  font-size: 1.25rem;
+  width: 44px;
+  height: 44px;
   border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-md);
 }
 
-.logo-text {
-  font-weight: 600;
-  font-size: 1.25rem;
+.header-title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.header-breadcrumb {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 700;
   color: var(--text-primary);
+  margin: 0;
 }
 
 .header-right {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 16px;
 }
 
-.theme-toggle {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-}
-
-.add-expense-btn {
+/* Search Bar */
+.header-search {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 220px;
+  padding: 12px 16px 12px 46px;
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  width: 280px;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px var(--accent-light);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-secondary);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.header-icon-btn:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.notification-btn .notification-dot {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background: var(--accent-gradient);
+  border-radius: 50%;
+  border: 2px solid var(--bg-secondary);
+}
+
+/* Add Expense Button */
+.add-expense-btn {
+  padding: 12px 20px;
+  border-radius: var(--radius-xl);
+  font-weight: 600;
+}
+
+.add-expense-text {
+  white-space: nowrap;
+}
+
+/* Profile Avatar */
+.header-profile {
+  margin-left: 8px;
+}
+
+.profile-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-xl);
+  background: var(--accent-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 12px rgba(117, 81, 255, 0.3);
+}
+
+.profile-avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(117, 81, 255, 0.4);
+}
+
+/* Mobile Styles */
+@media (max-width: 1024px) {
+  .header-search {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
   .header {
-    padding: 0.75rem 1rem;
+    padding: 12px 16px;
+    background-color: var(--bg-primary);
   }
 
   .sidebar-toggle {
     display: flex;
   }
 
-  .logo-text {
+  .header-title-section {
     display: none;
   }
 
@@ -81,6 +188,13 @@
   }
 
   .add-expense-btn {
-    padding: 0.6rem;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: var(--radius-xl);
+  }
+
+  .header-profile {
+    display: none;
   }
 }

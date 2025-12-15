@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Wallet, TrendingUp, Receipt, AlertTriangle } from 'lucide-react';
+import { Wallet, TrendingUp, Receipt, PiggyBank, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 import { useExpenses } from '../../context/ExpenseContext';
 import {
   filterExpensesByMonth,
@@ -50,13 +50,6 @@ const Dashboard = ({ onViewExpenses }) => {
 
   return (
     <div className="dashboard">
-      <div className="dashboard-header">
-        <div>
-          <h1>Dashboard</h1>
-          <p className="dashboard-subtitle">Track your spending and manage your budget</p>
-        </div>
-      </div>
-
       <div className="stats-grid">
         <StatCard
           title="Total Spent"
@@ -64,34 +57,41 @@ const Dashboard = ({ onViewExpenses }) => {
           icon={Wallet}
           color="primary"
           trend={getTrendDirection(stats.percentChange)}
-          trendValue={`${Math.abs(stats.percentChange).toFixed(1)}% from last month`}
+          trendValue={`${stats.percentChange >= 0 ? '+' : ''}${stats.percentChange.toFixed(1)}% from last month`}
         />
         <StatCard
           title="Transactions"
           value={stats.transactionCount}
           icon={Receipt}
           color="success"
+          subtitle="This month"
         />
         <StatCard
           title="Average Expense"
           value={formatCurrency(stats.avgExpense)}
           icon={TrendingUp}
-          color="warning"
+          color="info"
+          subtitle="Per transaction"
         />
         <StatCard
           title="Budget Remaining"
           value={formatCurrency(stats.budgetRemaining)}
-          icon={AlertTriangle}
+          icon={PiggyBank}
           color={stats.budgetStatus.status === 'exceeded' ? 'danger' : stats.budgetStatus.status === 'warning' ? 'warning' : 'success'}
+          subtitle={`${stats.budgetStatus.percentage.toFixed(0)}% used`}
         />
       </div>
 
       <div className="charts-grid">
-        <SpendingChart />
-        <TrendChart />
+        <div className="chart-card">
+          <TrendChart />
+        </div>
+        <div className="chart-card">
+          <SpendingChart />
+        </div>
       </div>
 
-      <div className="recent-section">
+      <div className="bottom-section">
         <RecentExpenses onViewAll={onViewExpenses} />
       </div>
     </div>

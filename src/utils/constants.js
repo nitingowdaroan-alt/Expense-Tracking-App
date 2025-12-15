@@ -1,17 +1,17 @@
 export const CATEGORIES = [
-  { id: 'food', name: 'Food', icon: 'UtensilsCrossed', color: '#f59e0b' },
-  { id: 'transport', name: 'Transport', icon: 'Car', color: '#3b82f6' },
-  { id: 'entertainment', name: 'Entertainment', icon: 'Film', color: '#8b5cf6' },
-  { id: 'bills', name: 'Bills', icon: 'Receipt', color: '#ef4444' },
-  { id: 'shopping', name: 'Shopping', icon: 'ShoppingBag', color: '#10b981' },
+  { id: 'food', name: 'Food', icon: 'UtensilsCrossed', color: '#ffb547' },
+  { id: 'transport', name: 'Transport', icon: 'Car', color: '#4299e1' },
+  { id: 'entertainment', name: 'Entertainment', icon: 'Film', color: '#7551ff' },
+  { id: 'bills', name: 'Bills', icon: 'Receipt', color: '#ee5d50' },
+  { id: 'shopping', name: 'Shopping', icon: 'ShoppingBag', color: '#01b574' },
   { id: 'health', name: 'Health', icon: 'Heart', color: '#ec4899' },
-  { id: 'education', name: 'Education', icon: 'GraduationCap', color: '#6366f1' },
-  { id: 'other', name: 'Other', icon: 'MoreHorizontal', color: '#64748b' },
+  { id: 'education', name: 'Education', icon: 'GraduationCap', color: '#868cff' },
+  { id: 'other', name: 'Other', icon: 'MoreHorizontal', color: '#a3aed0' },
 ];
 
 export const CHART_COLORS = [
-  '#6366f1', '#8b5cf6', '#ec4899', '#ef4444',
-  '#f59e0b', '#10b981', '#3b82f6', '#64748b'
+  '#7551ff', '#01b574', '#ffb547', '#ee5d50',
+  '#4299e1', '#ec4899', '#868cff', '#a3aed0'
 ];
 
 export const MONTHS = [

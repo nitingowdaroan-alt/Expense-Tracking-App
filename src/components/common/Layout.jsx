@@ -3,6 +3,13 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import './Layout.css';
 
+const viewTitles = {
+  dashboard: 'Dashboard',
+  expenses: 'Expenses',
+  analytics: 'Analytics',
+  budgets: 'Budgets',
+};
+
 const Layout = ({ children, activeView, onViewChange, onAddExpense }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -16,17 +23,18 @@ const Layout = ({ children, activeView, onViewChange, onAddExpense }) => {
 
   return (
     <div className="layout">
-      <Header
-        onAddExpense={onAddExpense}
-        isSidebarOpen={isSidebarOpen}
-        toggleSidebar={toggleSidebar}
+      <Sidebar
+        activeView={activeView}
+        onViewChange={onViewChange}
+        isOpen={isSidebarOpen}
+        onClose={closeSidebar}
       />
-      <div className="layout-body">
-        <Sidebar
-          activeView={activeView}
-          onViewChange={onViewChange}
-          isOpen={isSidebarOpen}
-          onClose={closeSidebar}
+      <div className="layout-main">
+        <Header
+          onAddExpense={onAddExpense}
+          isSidebarOpen={isSidebarOpen}
+          toggleSidebar={toggleSidebar}
+          pageTitle={viewTitles[activeView]}
         />
         <main className="main-content">
           {children}

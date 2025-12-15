@@ -39,12 +39,12 @@ const TrendChart = () => {
     <div className="trend-chart-container">
       <h3 className="chart-title">Monthly Spending Trend</h3>
       <div className="trend-chart-wrapper">
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={280}>
           <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
             <defs>
               <linearGradient id="colorTotal" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#6366f1" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#6366f1" stopOpacity={0} />
+                <stop offset="5%" stopColor="#7551ff" stopOpacity={0.4} />
+                <stop offset="95%" stopColor="#7551ff" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border-color)" />
@@ -52,12 +52,12 @@ const TrendChart = () => {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+              tick={{ fill: 'var(--text-muted)', fontSize: 12 }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
+              tick={{ fill: 'var(--text-muted)', fontSize: 12 }}
               tickFormatter={(value) => `₹${value}`}
               domain={[0, maxValue * 1.1]}
             />
@@ -65,8 +65,8 @@ const TrendChart = () => {
             <Area
               type="monotone"
               dataKey="total"
-              stroke="#6366f1"
-              strokeWidth={2}
+              stroke="#7551ff"
+              strokeWidth={3}
               fill="url(#colorTotal)"
             />
           </AreaChart>

@@ -1,7 +1,7 @@
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import './StatCard.css';
 
-const StatCard = ({ title, value, icon: Icon, trend, trendValue, color = 'primary' }) => {
+const StatCard = ({ title, value, icon: Icon, trend, trendValue, color = 'primary', subtitle }) => {
   const getTrendIcon = () => {
     if (!trend) return null;
     if (trend === 'up') return <TrendingUp size={14} />;
@@ -18,21 +18,28 @@ const StatCard = ({ title, value, icon: Icon, trend, trendValue, color = 'primar
 
   return (
     <div className={`stat-card stat-card-${color}`}>
-      <div className="stat-card-header">
-        <span className="stat-card-title">{title}</span>
+      <div className="stat-card-content">
+        <div className="stat-card-info">
+          <span className="stat-card-title">{title}</span>
+          <div className="stat-card-value">{value}</div>
+          {trendValue && (
+            <div className={`stat-card-trend ${getTrendClass()}`}>
+              {getTrendIcon()}
+              <span>{trendValue}</span>
+            </div>
+          )}
+          {subtitle && (
+            <span className="stat-card-subtitle">{subtitle}</span>
+          )}
+        </div>
         {Icon && (
-          <div className="stat-card-icon">
-            <Icon size={20} />
+          <div className="stat-card-icon-wrapper">
+            <div className={`stat-card-icon stat-icon-${color}`}>
+              <Icon size={24} />
+            </div>
           </div>
         )}
       </div>
-      <div className="stat-card-value">{value}</div>
-      {trendValue && (
-        <div className={`stat-card-trend ${getTrendClass()}`}>
-          {getTrendIcon()}
-          <span>{trendValue}</span>
-        </div>
-      )}
     </div>
   );
 };
