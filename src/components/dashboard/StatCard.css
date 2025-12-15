@@ -1,0 +1,93 @@
+.stat-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.stat-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.stat-card-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.stat-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card-primary .stat-card-icon {
+  background-color: var(--accent-light);
+  color: var(--accent-primary);
+}
+
+.stat-card-success .stat-card-icon {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.stat-card-warning .stat-card-icon {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+.stat-card-danger .stat-card-icon {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+.stat-card-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.trend-up {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.trend-down {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+.trend-neutral {
+  background-color: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 640px) {
+  .stat-card-value {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,101 @@
+import { useMemo } from 'react';
+import { Wallet, TrendingUp, Receipt, AlertTriangle } from 'lucide-react';
+import { useExpenses } from '../../context/ExpenseContext';
+import {
+  filterExpensesByMonth,
+  formatCurrency,
+  calculateMonthlyTotals,
+  getBudgetStatus
+} from '../../utils/helpers';
+import StatCard from './StatCard';
+import SpendingChart from './SpendingChart';
+import TrendChart from './TrendChart';
+import RecentExpenses from './RecentExpenses';
+import './Dashboard.css';
+
+const Dashboard = ({ onViewExpenses }) => {
+  const { expenses, budgets, selectedMonth } = useExpenses();
+
+  const stats = useMemo(() => {
+    const monthExpenses = filterExpensesByMonth(expenses, selectedMonth);
+    const monthlyTotals = calculateMonthlyTotals(expenses, 2);
+
+    const currentMonthTotal = monthExpenses.reduce((sum, exp) => sum + exp.amount, 0);
+    const previousMonthTotal = monthlyTotals.length >= 2 ? monthlyTotals[0].total : 0;
+
+    const percentChange = previousMonthTotal > 0
+      ? ((currentMonthTotal - previousMonthTotal) / previousMonthTotal) * 100
+      : 0;
+
+    const budgetStatus = getBudgetStatus(currentMonthTotal, budgets.monthly);
+    const avgExpense = monthExpenses.length > 0
+      ? currentMonthTotal / monthExpenses.length
+      : 0;
+
+    return {
+      totalSpent: currentMonthTotal,
+      transactionCount: monthExpenses.length,
+      avgExpense,
+      budgetStatus,
+      percentChange,
+      budgetRemaining: Math.max(0, budgets.monthly - currentMonthTotal),
+    };
+  }, [expenses, budgets, selectedMonth]);
+
+  const getTrendDirection = (percentChange) => {
+    if (percentChange > 5) return 'up';
+    if (percentChange < -5) return 'down';
+    return 'neutral';
+  };
+
+  return (
+    <div className="dashboard">
+      <div className="dashboard-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p className="dashboard-subtitle">Track your spending and manage your budget</p>
+        </div>
+      </div>
+
+      <div className="stats-grid">
+        <StatCard
+          title="Total Spent"
+          value={formatCurrency(stats.totalSpent)}
+          icon={Wallet}
+          color="primary"
+          trend={getTrendDirection(stats.percentChange)}
+          trendValue={`${Math.abs(stats.percentChange).toFixed(1)}% from last month`}
+        />
+        <StatCard
+          title="Transactions"
+          value={stats.transactionCount}
+          icon={Receipt}
+          color="success"
+        />
+        <StatCard
+          title="Average Expense"
+          value={formatCurrency(stats.avgExpense)}
+          icon={TrendingUp}
+          color="warning"
+        />
+        <StatCard
+          title="Budget Remaining"
+          value={formatCurrency(stats.budgetRemaining)}
+          icon={AlertTriangle}
+          color={stats.budgetStatus.status === 'exceeded' ? 'danger' : stats.budgetStatus.status === 'warning' ? 'warning' : 'success'}
+        />
+      </div>
+
+      <div className="charts-grid">
+        <SpendingChart />
+        <TrendChart />
+      </div>
+
+      <div className="recent-section">
+        <RecentExpenses onViewAll={onViewExpenses} />
+      </div>
+    </div>
+  );
+};
+
+export default Dashboard;

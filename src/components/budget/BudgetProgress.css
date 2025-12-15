@@ -1,0 +1,123 @@
+.budget-progress {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  transition: var(--transition);
+}
+
+.budget-progress:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.budget-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.budget-category {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.budget-category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.budget-category-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.budget-status-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-normal {
+  color: var(--success);
+}
+
+.status-warning {
+  color: var(--warning);
+}
+
+.status-exceeded {
+  color: var(--danger);
+}
+
+.budget-progress-bar {
+  height: 8px;
+  background-color: var(--bg-tertiary);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.budget-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s ease;
+}
+
+.progress-normal {
+  background-color: var(--success);
+}
+
+.progress-warning {
+  background-color: var(--warning);
+}
+
+.progress-exceeded {
+  background-color: var(--danger);
+}
+
+.budget-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+
+.budget-spent {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.budget-total {
+  color: var(--text-secondary);
+}
+
+.budget-label {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.budget-alert,
+.budget-warning {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.budget-alert {
+  background-color: var(--danger-light);
+  color: var(--danger);
+}
+
+.budget-warning {
+  background-color: var(--warning-light);
+  color: #92400e;
+}
+
+[data-theme="dark"] .budget-warning {
+  color: var(--warning);
+}
