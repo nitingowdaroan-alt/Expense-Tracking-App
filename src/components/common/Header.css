@@ -124,15 +124,21 @@
 /* Theme toggle specific styling */
 .theme-toggle-btn {
   background-color: var(--bg-tertiary);
+  overflow: hidden;
 }
 
 .theme-toggle-btn svg {
-  stroke-width: 2;
+  width: 22px;
+  height: 22px;
   color: var(--text-primary);
+  fill: var(--text-primary);
+  stroke: var(--text-primary);
 }
 
 .theme-toggle-btn:hover svg {
   color: var(--accent-primary);
+  fill: var(--accent-primary);
+  stroke: var(--accent-primary);
 }
 
 [data-theme="dark"] .theme-toggle-btn {
@@ -141,6 +147,8 @@
 
 [data-theme="dark"] .theme-toggle-btn svg {
   color: #ffd700;
+  fill: none;
+  stroke: #ffd700;
 }
 
 .notification-btn .notification-dot {
