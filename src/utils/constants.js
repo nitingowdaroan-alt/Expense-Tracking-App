@@ -26,13 +26,13 @@ export const STORAGE_KEYS = {
 };
 
 export const DEFAULT_BUDGETS = {
-  monthly: 3000,
-  food: 500,
-  transport: 300,
-  entertainment: 200,
-  bills: 800,
-  shopping: 400,
-  health: 200,
-  education: 300,
-  other: 300,
+  monthly: 50000,
+  food: 10000,
+  transport: 5000,
+  entertainment: 3000,
+  bills: 15000,
+  shopping: 8000,
+  health: 3000,
+  education: 5000,
+  other: 5000,
 };

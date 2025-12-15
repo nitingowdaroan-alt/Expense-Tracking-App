@@ -106,7 +106,7 @@ const BudgetManager = () => {
           <div className="budget-setting-group">
             <label>Monthly Budget</label>
             <div className="input-with-prefix">
-              <span className="input-prefix">$</span>
+              <span className="input-prefix">₹</span>
               <input
                 type="number"
                 value={editedBudgets.monthly}
@@ -132,7 +132,7 @@ const BudgetManager = () => {
                   {category.name}
                 </label>
                 <div className="input-with-prefix">
-                  <span className="input-prefix">$</span>
+                  <span className="input-prefix">₹</span>
                   <input
                     type="number"
                     value={editedBudgets[category.id] || 0}

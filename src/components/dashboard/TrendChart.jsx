@@ -58,7 +58,7 @@ const TrendChart = () => {
               axisLine={false}
               tickLine={false}
               tick={{ fill: 'var(--text-secondary)', fontSize: 12 }}
-              tickFormatter={(value) => `$${value}`}
+              tickFormatter={(value) => `₹${value}`}
               domain={[0, maxValue * 1.1]}
             />
             <Tooltip content={<CustomTooltip />} />

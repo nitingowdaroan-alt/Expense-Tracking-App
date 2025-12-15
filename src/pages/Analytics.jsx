@@ -141,7 +141,7 @@ const Analytics = () => {
             <ResponsiveContainer width="100%" height={350}>
               <BarChart data={categoryData} layout="vertical" margin={{ left: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="var(--border-color)" />
-                <XAxis type="number" tickFormatter={(value) => `$${value}`} tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
+                <XAxis type="number" tickFormatter={(value) => `₹${value}`} tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
                 <YAxis type="category" dataKey="name" tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} width={90} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="budget" fill="var(--bg-tertiary)" name="Budget" radius={[0, 4, 4, 0]} />
@@ -161,7 +161,7 @@ const Analytics = () => {
           <BarChart data={monthlyData}>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="var(--border-color)" />
             <XAxis dataKey="month" tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
-            <YAxis tickFormatter={(value) => `$${value}`} tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
+            <YAxis tickFormatter={(value) => `₹${value}`} tick={{ fill: 'var(--text-secondary)', fontSize: 12 }} />
             <Tooltip
               content={({ active, payload }) => {
                 if (active && payload && payload.length) {
