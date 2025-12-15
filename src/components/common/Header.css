@@ -124,31 +124,37 @@
 /* Theme toggle specific styling */
 .theme-toggle-btn {
   background-color: var(--bg-tertiary);
-  overflow: hidden;
+  overflow: visible;
 }
 
-.theme-toggle-btn svg {
+.theme-toggle-btn .theme-icon {
+  display: block;
   width: 22px;
   height: 22px;
-  color: var(--text-primary);
-  fill: var(--text-primary);
-  stroke: var(--text-primary);
 }
 
-.theme-toggle-btn:hover svg {
-  color: var(--accent-primary);
+/* Moon icon (shown in light mode) */
+.theme-toggle-btn .moon-icon path {
+  fill: #2b3674;
+}
+
+.theme-toggle-btn:hover .moon-icon path {
   fill: var(--accent-primary);
-  stroke: var(--accent-primary);
+}
+
+/* Sun icon (shown in dark mode) */
+.theme-toggle-btn .sun-icon circle,
+.theme-toggle-btn .sun-icon path {
+  stroke: #ffd700;
+}
+
+.theme-toggle-btn:hover .sun-icon circle,
+.theme-toggle-btn:hover .sun-icon path {
+  stroke: #ffed4a;
 }
 
 [data-theme="dark"] .theme-toggle-btn {
   background-color: var(--bg-tertiary);
-}
-
-[data-theme="dark"] .theme-toggle-btn svg {
-  color: #ffd700;
-  fill: none;
-  stroke: #ffd700;
 }
 
 .notification-btn .notification-dot {
