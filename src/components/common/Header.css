@@ -109,11 +109,38 @@
   position: relative;
 }
 
+.header-icon-btn svg {
+  stroke: currentColor;
+  color: inherit;
+}
+
 .header-icon-btn:hover {
   background-color: var(--bg-tertiary);
   color: var(--accent-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
+}
+
+/* Theme toggle specific styling */
+.theme-toggle-btn {
+  background-color: var(--bg-tertiary);
+}
+
+.theme-toggle-btn svg {
+  stroke-width: 2;
+  color: var(--text-primary);
+}
+
+.theme-toggle-btn:hover svg {
+  color: var(--accent-primary);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  background-color: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .theme-toggle-btn svg {
+  color: #ffd700;
 }
 
 .notification-btn .notification-dot {

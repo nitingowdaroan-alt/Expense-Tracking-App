@@ -34,11 +34,12 @@ const Header = ({ onAddExpense, isSidebarOpen, toggleSidebar, pageTitle }) => {
 
         <div className="header-actions">
           <button
-            className="header-icon-btn"
+            className="header-icon-btn theme-toggle-btn"
             onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
-            {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
           </button>
 
           <button className="header-icon-btn notification-btn">
